@@ -1,8 +1,8 @@
- ###  DATE: 
+ ###  DATE: 16/5/24
 
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT: 
+###  NAME: B NARESH
+###  ROLL NO :212221080012
+###  DEPARTMENT: mechanical 
 
 **AIM**:  To interface a Analog  input (angular displacement sensor POT) and scale the values up on change in the input.
 
@@ -52,6 +52,9 @@ CIRCUIT DIAGRAM
 
 **FIGURE -01
 **
+![Screenshot 2024-05-16 105820](https://github.com/vasanthkumarch/EXPERIMENT-NO--02-INTERFACING-ANALOG-INPUT-SENSOR-POT-WITH-ARDUINO-/assets/118343892/6caf149a-3031-4801-8b8e-810b3fb8efc5)
+![Screenshot 2024-05-16 105806](https://github.com/vasanthkumarch/EXPERIMENT-NO--02-INTERFACING-ANALOG-INPUT-SENSOR-POT-WITH-ARDUINO-/assets/118343892/b9057ddd-ee67-4cdc-83b4-7c8f9105cb7e)
+![Screenshot 2024-05-16 105749](https://github.com/vasanthkumarch/EXPERIMENT-NO--02-INTERFACING-ANALOG-INPUT-SENSOR-POT-WITH-ARDUINO-/assets/118343892/f33f8dab-b2fd-4abc-9945-108c1d4198f5)
 
 **PROCEDURE:**
 
@@ -68,7 +71,32 @@ CIRCUIT DIAGRAM
 
 
 **PROGRAM** 
- 
+ ```int pot;
+int led=7;
+void setup()
+{
+  pinMode(led,OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  pot=analogRead(A0);
+  //Serial.print("Value=");
+  Serial.println(pot);
+  if(pot>900)
+  {
+  	digitalWrite(led, HIGH);
+  	delay(500); // Wait for 500 millisecond(s)
+  	digitalWrite(led, LOW);
+  	delay(500); // Wait for 500 millisecond(s)
+  }
+  else
+  {
+  	digitalWrite(led, LOW);
+  	delay(500);
+  }
+}
 
 
 
